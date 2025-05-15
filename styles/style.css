@@ -93,7 +93,6 @@
 }
 
 .post__cover-image {
-  /*inline-size: clamp(23.188rem, 16.035rem + 30.516vw, 43.5rem);*/
   inline-size: var(--header-inline-size);
   min-height: clamp(23.188rem, 16.035rem + 30.516vw, 43.625rem);
   max-height: clamp(23.188rem, 16.035rem + 30.516vw, 43.625rem);
@@ -125,7 +124,7 @@
   margin-block-end: 24.5px;
   font-size: var(--main-font-size);
   margin-left: clamp(1.688rem, 1.732rem + -0.188vw, 1.563rem);
-  margin-right: 65px;
+  margin-right: 28px;
 }
 
 .card__button {
@@ -144,27 +143,36 @@
   justify-content: flex-end;
   background: transparent;
   border: none;
+  padding-block: 0;
+  border: 2px solid transparent;
+  transition: border 0.3s ease;
 }
 
-.card__like-button {
+.button {
   background: transparent;
   position: relative;
   z-index: 1;
-  cursor: pointer;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid var(--contour-color);
+  font-family: var(--accent-font-family);
+  font-size: var(--rare-font-size);
+  background-color: var(--text-stroke-color);
+  box-shadow: 2px 2px transparent;
+  transition: box-shadow 0.3s linear;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card__like-button {
   inline-size: 128px;
   block-size: 40px;
   padding: 10px 34px;
   font-family: var(--accent-font-family);
   font-size: var(--rare-font-size);
-  box-shadow: 2px 2px transparent;
-  transition: box-shadow 0.3s linear;
-  background-color: var(--text-stroke-color);
 }
-
 
 .footer_button {
   display: flex;
@@ -172,23 +180,9 @@
 }
 
 .save__button {
-  background: transparent;
-  z-index: 1;
-  cursor: pointer;
-  border: 2px solid var(--contour-color);
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 8px;
   block-size: clamp(3.438rem, 5.888rem + -2.723vw, 5.25rem);
   inline-size: clamp(19.125rem, 18.465rem + 2.817vw, 21rem);
-  background-color: var(--text-stroke-color);
-  font-family: var(--accent-font-family);
-  font-size: var(--rare-font-size);
-  box-shadow: 2px 2px transparent;
-  transition: box-shadow 0.3s linear;
-  overflow: hidden;
 }
 
 .dialog {
@@ -228,15 +222,8 @@
 }
 
 .dialog__button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--text-stroke-color);
-  border: 2px solid var(--contour-color);
   inline-size: clamp(16.063rem, 15.248rem + 3.474vw, 18.375rem);
   block-size: 38px;
-  box-shadow: 2px 2px transparent;
-  transition: box-shadow 0.3s linear;
   text-transform: uppercase;
 }
 
@@ -247,18 +234,18 @@
 }
 
 .card__icon-button:focus-visible {
-  outline: 2px solid var(--contour-color);
+  border: 2px solid var(--contour-color);
 }
 
-.card__like-button:focus {
+.button:focus {
   outline: none;
 }
 
-.card__like-button:focus-visible {
+.button:focus-visible {
   box-shadow: 2px 2px var(--contour-color);
 }
 
-.save__button::before {
+.button::before {
   content: "";
   position: absolute;
   top: 0;
@@ -272,25 +259,7 @@
   block-size: 100%;
 }
 
-.save__button:hover::before {
-  transform: scaleX(1);
-}
-
-.card__like-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  background: var(--contour-color);
-  transition: transform 0.5s ease-in-out;
-  transform: scaleX(0);
-  transform-origin: left;
-  inline-size: 100%;
-  block-size: 100%;
-}
-
-.card__like-button:hover::before {
+.button:hover::before {
   transform: scaleX(1);
 }
 
@@ -311,22 +280,6 @@
   fill: var(--text-stroke-color);
   stroke: var(--text-stroke-color);
   mix-blend-mode: difference;
-}
-
-.save__button:focus {
-  outline: none;
-}
-
-.save__button:focus-visible {
-  box-shadow: 2px 2px var(--contour-color);
-}
-
-.dialog__button:focus {
-  outline: none;
-}
-
-.dialog__button:focus-visible {
-  box-shadow: 2px 2px var(--contour-color);
 }
 
 /* Filters */
@@ -383,7 +336,7 @@
 
   .post__content {
     margin-block-start: 27px;
-    margin-right: 46px;
+    margin-right: 30px;
     gap: 29px;
   }
 
